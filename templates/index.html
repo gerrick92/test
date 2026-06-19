@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WoW Database Explorer</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><main class="wrap"><h1>WoW Database Explorer</h1>{% if not db_exists %}<p class="warn">Database not built yet. Run <code>python scripts\build_database.py</code>.</p>{% endif %}<form><input name="q" value="{{ q }}" placeholder="Search name or ID"><select name="expansion"><option value="all">All expansions</option>{% for x in ['classic','tbc','wotlk'] %}<option value="{{x}}" {% if expansion==x %}selected{% endif %}>{{x}}</option>{% endfor %}</select><select name="type"><option value="all">All types</option>{% for x in ['item','quest','npc','spell','object','zone','faction','achievement','title','currency'] %}<option value="{{x}}" {% if typ==x %}selected{% endif %}>{{x}}</option>{% endfor %}</select><button>Search</button></form><section>{% for r in rows %}<article class="card"><strong>[{{r.expansion}}] {{r.type}} {{r.id}} - {{r.name}}</strong><br><a href="{{r.url}}">{{r.url}}</a><pre>{% if r.type=='item' %}.lookup item {{r.name}}
+.additem {{r.id}} 1{% elif r.type=='quest' %}.lookup quest {{r.name}}
+.quest add {{r.id}}
+.quest complete {{r.id}}{% elif r.type=='npc' %}.lookup creature {{r.name}}
+.npc add {{r.id}}
+.go creature {{r.id}}{% elif r.type=='spell' %}.lookup spell {{r.name}}
+.learn {{r.id}}{% endif %}</pre></article>{% endfor %}</section></main></body></html>

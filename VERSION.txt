@@ -1,0 +1,1 @@
+v1.7 fullscan presets + fixed sqlite FTS rebuild
