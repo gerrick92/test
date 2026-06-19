@@ -1508,1316 +1508,626 @@
   {
     "expansion": "classic",
     "type": "quest",
-    "id": 201,
-    "name": "Investigate the Camp",
-    "url": "https://www.wowhead.com/classic/quest=201/investigate-the-camp",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 202,
-    "name": "Colonel Kurzen",
-    "url": "https://www.wowhead.com/classic/quest=202/colonel-kurzen",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 203,
-    "name": "The Second Rebellion",
-    "url": "https://www.wowhead.com/classic/quest=203/the-second-rebellion",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 204,
-    "name": "Bad Medicine",
-    "url": "https://www.wowhead.com/classic/quest=204/bad-medicine",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 205,
-    "name": "Troll Witchery",
-    "url": "https://www.wowhead.com/classic/quest=205/troll-witchery",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
     "id": 206,
     "name": "Mai'Zoth",
-    "url": "https://www.wowhead.com/classic/quest=206/maizoth",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=206",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 207,
     "name": "Kurzen's Mystery",
-    "url": "https://www.wowhead.com/classic/quest=207/kurzens-mystery",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=207",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 208,
     "name": "Big Game Hunter",
-    "url": "https://www.wowhead.com/classic/quest=208/big-game-hunter",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=208",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 209,
     "name": "Skullsplitter Tusks",
-    "url": "https://www.wowhead.com/classic/quest=209/skullsplitter-tusks",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 210,
-    "name": "Krazek's Cookery",
-    "url": "https://www.wowhead.com/classic/quest=210/krazeks-cookery",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=209",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 211,
     "name": "Alas, Andorhal",
-    "url": "https://www.wowhead.com/classic/quest=211/alas-andorhal",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 212,
-    "name": "A Meal Served Cold",
-    "url": "https://www.wowhead.com/classic/quest=212/a-meal-served-cold",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 213,
-    "name": "Hostile Takeover",
-    "url": "https://www.wowhead.com/classic/quest=213/hostile-takeover",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=211",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 214,
     "name": "Red Silk Bandanas",
-    "url": "https://www.wowhead.com/classic/quest=214/red-silk-bandanas",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=214",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 215,
     "name": "Jungle Secrets",
-    "url": "https://www.wowhead.com/classic/quest=215/jungle-secrets",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 216,
-    "name": "Between a Rock and a Thistlefur",
-    "url": "https://www.wowhead.com/classic/quest=216/between-a-rock-and-a-thistlefur",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=215",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 217,
     "name": "In Defense of the King's Lands",
-    "url": "https://www.wowhead.com/classic/quest=217/in-defense-of-the-kings-lands",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 218,
-    "name": "The Stolen Journal",
-    "url": "https://www.wowhead.com/classic/quest=218/the-stolen-journal",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 219,
-    "name": "Missing In Action",
-    "url": "https://www.wowhead.com/classic/quest=219/missing-in-action",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 220,
-    "name": "Call of Water",
-    "url": "https://www.wowhead.com/classic/quest=220/call-of-water",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 221,
-    "name": "Worgen in the Woods",
-    "url": "https://www.wowhead.com/classic/quest=221/worgen-in-the-woods",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 222,
-    "name": "Worgen in the Woods",
-    "url": "https://www.wowhead.com/classic/quest=222/worgen-in-the-woods",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=217",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 223,
     "name": "Worgen in the Woods",
-    "url": "https://www.wowhead.com/classic/quest=223/worgen-in-the-woods",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 224,
-    "name": "In Defense of the King's Lands",
-    "url": "https://www.wowhead.com/classic/quest=224/in-defense-of-the-kings-lands",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=223",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 225,
     "name": "The Weathered Grave",
-    "url": "https://www.wowhead.com/classic/quest=225/the-weathered-grave",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 226,
-    "name": "Wolves at Our Heels",
-    "url": "https://www.wowhead.com/classic/quest=226/wolves-at-our-heels",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 227,
-    "name": "Morgan Ladimore",
-    "url": "https://www.wowhead.com/classic/quest=227/morgan-ladimore",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=225",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 228,
     "name": "Mor'Ladim",
-    "url": "https://www.wowhead.com/classic/quest=228/morladim",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 229,
-    "name": "The Daughter Who Lived",
-    "url": "https://www.wowhead.com/classic/quest=229/the-daughter-who-lived",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 230,
-    "name": "Sven's Camp",
-    "url": "https://www.wowhead.com/classic/quest=230/svens-camp",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=228",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 231,
     "name": "A Daughter's Love",
-    "url": "https://www.wowhead.com/classic/quest=231/a-daughters-love",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 232,
-    "name": "Errand for Apothecary Zinge",
-    "url": "https://www.wowhead.com/classic/quest=232/errand-for-apothecary-zinge",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 233,
-    "name": "Coldridge Valley Mail Delivery",
-    "url": "https://www.wowhead.com/classic/quest=233/coldridge-valley-mail-delivery",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 234,
-    "name": "Coldridge Valley Mail Delivery",
-    "url": "https://www.wowhead.com/classic/quest=234/coldridge-valley-mail-delivery",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 235,
-    "name": "The Ashenvale Hunt",
-    "url": "https://www.wowhead.com/classic/quest=235/the-ashenvale-hunt",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 236,
-    "name": "Fueling the Demolishers",
-    "url": "https://www.wowhead.com/classic/quest=236/fueling-the-demolishers",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 237,
-    "name": "In Defense of the King's Lands",
-    "url": "https://www.wowhead.com/classic/quest=237/in-defense-of-the-kings-lands",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 238,
-    "name": "Errand for Apothecary Zinge",
-    "url": "https://www.wowhead.com/classic/quest=238/errand-for-apothecary-zinge",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 239,
-    "name": "Westbrook Garrison Needs Help!",
-    "url": "https://www.wowhead.com/classic/quest=239/westbrook-garrison-needs-help",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 240,
-    "name": "Return to Jitters",
-    "url": "https://www.wowhead.com/classic/quest=240/return-to-jitters",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 241,
-    "name": "<TEST> HEY MISTER WILSON!",
-    "url": "https://www.wowhead.com/classic/quest=241/test-hey-mister-wilson",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 242,
-    "name": "<UNUSED>",
-    "url": "https://www.wowhead.com/classic/quest=242/unused",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 243,
-    "name": "Into the Field",
-    "url": "https://www.wowhead.com/classic/quest=243/into-the-field",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 244,
-    "name": "Encroaching Gnolls",
-    "url": "https://www.wowhead.com/classic/quest=244/encroaching-gnolls",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 245,
-    "name": "Eight-Legged Menaces",
-    "url": "https://www.wowhead.com/classic/quest=245/eight-legged-menaces",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 246,
-    "name": "Assessing the Threat",
-    "url": "https://www.wowhead.com/classic/quest=246/assessing-the-threat",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 247,
-    "name": "The Hunt Completed",
-    "url": "https://www.wowhead.com/classic/quest=247/the-hunt-completed",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=231",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 248,
     "name": "Looking Further",
-    "url": "https://www.wowhead.com/classic/quest=248/looking-further",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=248",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 249,
     "name": "Morganth",
-    "url": "https://www.wowhead.com/classic/quest=249/morganth",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=249",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 250,
     "name": "A Dark Threat Looms",
-    "url": "https://www.wowhead.com/classic/quest=250/a-dark-threat-looms",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 251,
-    "name": "Translate Abercrombie's Note",
-    "url": "https://www.wowhead.com/classic/quest=251/translate-abercrombies-note",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 252,
-    "name": "Translation to Ello",
-    "url": "https://www.wowhead.com/classic/quest=252/translation-to-ello",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=250",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 253,
     "name": "Bride of the Embalmer",
-    "url": "https://www.wowhead.com/classic/quest=253/bride-of-the-embalmer",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 254,
-    "name": "Digging Through the Dirt",
-    "url": "https://www.wowhead.com/classic/quest=254/digging-through-the-dirt",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 255,
-    "name": "Mercenaries",
-    "url": "https://www.wowhead.com/classic/quest=255/mercenaries",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 256,
-    "name": "WANTED: Chok'sul",
-    "url": "https://www.wowhead.com/classic/quest=256/wanted-choksul",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 257,
-    "name": "A Hunter's Boast",
-    "url": "https://www.wowhead.com/classic/quest=257/a-hunters-boast",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=253",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 258,
     "name": "A Hunter's Challenge",
-    "url": "https://www.wowhead.com/classic/quest=258/a-hunters-challenge",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 259,
-    "name": "<UNUSED>",
-    "url": "https://www.wowhead.com/classic/quest=259/unused",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 260,
-    "name": "<UNUSED>",
-    "url": "https://www.wowhead.com/classic/quest=260/unused",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=258",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 261,
     "name": "Down the Scarlet Path",
-    "url": "https://www.wowhead.com/classic/quest=261/down-the-scarlet-path",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 262,
-    "name": "The Shadowy Figure",
-    "url": "https://www.wowhead.com/classic/quest=262/the-shadowy-figure",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=261",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 263,
     "name": "In Defense of the King's Lands",
-    "url": "https://www.wowhead.com/classic/quest=263/in-defense-of-the-kings-lands",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=263",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 264,
     "name": "Until Death Do Us Part",
-    "url": "https://www.wowhead.com/classic/quest=264/until-death-do-us-part",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 265,
-    "name": "The Shadowy Search Continues",
-    "url": "https://www.wowhead.com/classic/quest=265/the-shadowy-search-continues",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 266,
-    "name": "Inquire at the Inn",
-    "url": "https://www.wowhead.com/classic/quest=266/inquire-at-the-inn",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 267,
-    "name": "The Trogg Threat",
-    "url": "https://www.wowhead.com/classic/quest=267/the-trogg-threat",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 268,
-    "name": "Return to Sven",
-    "url": "https://www.wowhead.com/classic/quest=268/return-to-sven",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=264",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 269,
     "name": "Seeking Wisdom",
-    "url": "https://www.wowhead.com/classic/quest=269/seeking-wisdom",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 270,
-    "name": "The Doomed Fleet",
-    "url": "https://www.wowhead.com/classic/quest=270/the-doomed-fleet",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=269",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 271,
     "name": "Vyrin's Revenge",
-    "url": "https://www.wowhead.com/classic/quest=271/vyrins-revenge",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=271",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 272,
     "name": "Trial of the Sea Lion",
-    "url": "https://www.wowhead.com/classic/quest=272/trial-of-the-sea-lion",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 273,
-    "name": "Resupplying the Excavation",
-    "url": "https://www.wowhead.com/classic/quest=273/resupplying-the-excavation",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 274,
-    "name": "A Dark Threat Looms",
-    "url": "https://www.wowhead.com/classic/quest=274/a-dark-threat-looms",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=272",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 275,
     "name": "Blisters on The Land",
-    "url": "https://www.wowhead.com/classic/quest=275/blisters-on-the-land",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 276,
-    "name": "Tramping Paws",
-    "url": "https://www.wowhead.com/classic/quest=276/tramping-paws",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 277,
-    "name": "Fire Taboo",
-    "url": "https://www.wowhead.com/classic/quest=277/fire-taboo",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=275",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 278,
     "name": "A Dark Threat Looms",
-    "url": "https://www.wowhead.com/classic/quest=278/a-dark-threat-looms",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 279,
-    "name": "Claws from the Deep",
-    "url": "https://www.wowhead.com/classic/quest=279/claws-from-the-deep",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=278",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 280,
     "name": "A Dark Threat Looms",
-    "url": "https://www.wowhead.com/classic/quest=280/a-dark-threat-looms",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 281,
-    "name": "Reclaiming Goods",
-    "url": "https://www.wowhead.com/classic/quest=281/reclaiming-goods",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 282,
-    "name": "Senir's Observations",
-    "url": "https://www.wowhead.com/classic/quest=282/senirs-observations",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=280",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 283,
     "name": "A Dark Threat Looms",
-    "url": "https://www.wowhead.com/classic/quest=283/a-dark-threat-looms",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 284,
-    "name": "The Search Continues",
-    "url": "https://www.wowhead.com/classic/quest=284/the-search-continues",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 285,
-    "name": "Search More Hovels",
-    "url": "https://www.wowhead.com/classic/quest=285/search-more-hovels",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 286,
-    "name": "Return the Statuette",
-    "url": "https://www.wowhead.com/classic/quest=286/return-the-statuette",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=283",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 287,
     "name": "Frostmane Hold",
-    "url": "https://www.wowhead.com/classic/quest=287/frostmane-hold",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 288,
-    "name": "The Third Fleet",
-    "url": "https://www.wowhead.com/classic/quest=288/the-third-fleet",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=287",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 289,
     "name": "The Cursed Crew",
-    "url": "https://www.wowhead.com/classic/quest=289/the-cursed-crew",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=289",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 290,
     "name": "Lifting the Curse",
-    "url": "https://www.wowhead.com/classic/quest=290/lifting-the-curse",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 291,
-    "name": "The Reports",
-    "url": "https://www.wowhead.com/classic/quest=291/the-reports",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 292,
-    "name": "The Eye of Paleth",
-    "url": "https://www.wowhead.com/classic/quest=292/the-eye-of-paleth",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 293,
-    "name": "Cleansing the Eye",
-    "url": "https://www.wowhead.com/classic/quest=293/cleansing-the-eye",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 294,
-    "name": "Ormer's Revenge",
-    "url": "https://www.wowhead.com/classic/quest=294/ormers-revenge",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 295,
-    "name": "Ormer's Revenge",
-    "url": "https://www.wowhead.com/classic/quest=295/ormers-revenge",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=290",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 296,
     "name": "Ormer's Revenge",
-    "url": "https://www.wowhead.com/classic/quest=296/ormers-revenge",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 297,
-    "name": "Gathering Idols",
-    "url": "https://www.wowhead.com/classic/quest=297/gathering-idols",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 298,
-    "name": "Excavation Progress Report",
-    "url": "https://www.wowhead.com/classic/quest=298/excavation-progress-report",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=296",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 299,
     "name": "Uncovering the Past",
-    "url": "https://www.wowhead.com/classic/quest=299/uncovering-the-past",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 301,
-    "name": "Report to Ironforge",
-    "url": "https://www.wowhead.com/classic/quest=301/report-to-ironforge",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 302,
-    "name": "Powder to Ironband",
-    "url": "https://www.wowhead.com/classic/quest=302/powder-to-ironband",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=299",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 303,
     "name": "The Dark Iron War",
-    "url": "https://www.wowhead.com/classic/quest=303/the-dark-iron-war",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=303",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 304,
     "name": "A Grim Task",
-    "url": "https://www.wowhead.com/classic/quest=304/a-grim-task",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 305,
-    "name": "In Search of The Excavation Team",
-    "url": "https://www.wowhead.com/classic/quest=305/in-search-of-the-excavation-team",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 306,
-    "name": "In Search of The Excavation Team",
-    "url": "https://www.wowhead.com/classic/quest=306/in-search-of-the-excavation-team",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 307,
-    "name": "Filthy Paws",
-    "url": "https://www.wowhead.com/classic/quest=307/filthy-paws",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 308,
-    "name": "Distracting Jarven",
-    "url": "https://www.wowhead.com/classic/quest=308/distracting-jarven",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 309,
-    "name": "Protecting the Shipment",
-    "url": "https://www.wowhead.com/classic/quest=309/protecting-the-shipment",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 310,
-    "name": "Bitter Rivals",
-    "url": "https://www.wowhead.com/classic/quest=310/bitter-rivals",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 311,
-    "name": "Return to Marleth",
-    "url": "https://www.wowhead.com/classic/quest=311/return-to-marleth",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=304",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 312,
     "name": "Tundra MacGrann's Stolen Stash",
-    "url": "https://www.wowhead.com/classic/quest=312/tundra-macgranns-stolen-stash",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 313,
-    "name": "The Grizzled Den",
-    "url": "https://www.wowhead.com/classic/quest=313/the-grizzled-den",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=312",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 314,
     "name": "Protecting the Herd",
-    "url": "https://www.wowhead.com/classic/quest=314/protecting-the-herd",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 315,
-    "name": "The Perfect Stout",
-    "url": "https://www.wowhead.com/classic/quest=315/the-perfect-stout",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 316,
-    "name": "<UNUSED>",
-    "url": "https://www.wowhead.com/classic/quest=316/unused",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 317,
-    "name": "Stocking Jetsteam",
-    "url": "https://www.wowhead.com/classic/quest=317/stocking-jetsteam",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 318,
-    "name": "Evershine",
-    "url": "https://www.wowhead.com/classic/quest=318/evershine",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 319,
-    "name": "A Favor for Evershine",
-    "url": "https://www.wowhead.com/classic/quest=319/a-favor-for-evershine",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 320,
-    "name": "Return to Bellowfiz",
-    "url": "https://www.wowhead.com/classic/quest=320/return-to-bellowfiz",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 321,
-    "name": "Lightforge Iron",
-    "url": "https://www.wowhead.com/classic/quest=321/lightforge-iron",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 322,
-    "name": "Blessed Arm",
-    "url": "https://www.wowhead.com/classic/quest=322/blessed-arm",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=314",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 323,
     "name": "Proving Your Worth",
-    "url": "https://www.wowhead.com/classic/quest=323/proving-your-worth",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 324,
-    "name": "The Lost Ingots",
-    "url": "https://www.wowhead.com/classic/quest=324/the-lost-ingots",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=323",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 325,
     "name": "Armed and Ready",
-    "url": "https://www.wowhead.com/classic/quest=325/armed-and-ready",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 326,
-    "name": "<UNUSED>",
-    "url": "https://www.wowhead.com/classic/quest=326/unused",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 327,
-    "name": "<UNUSED>",
-    "url": "https://www.wowhead.com/classic/quest=327/unused",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=325",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 328,
     "name": "The Hidden Key",
-    "url": "https://www.wowhead.com/classic/quest=328/the-hidden-key",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 329,
-    "name": "The Spy Revealed!",
-    "url": "https://www.wowhead.com/classic/quest=329/the-spy-revealed",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 330,
-    "name": "Patrol Schedules",
-    "url": "https://www.wowhead.com/classic/quest=330/patrol-schedules",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 331,
-    "name": "Report to Doren",
-    "url": "https://www.wowhead.com/classic/quest=331/report-to-doren",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 332,
-    "name": "Wine Shop Advert",
-    "url": "https://www.wowhead.com/classic/quest=332/wine-shop-advert",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 333,
-    "name": "Harlan Needs a Resupply",
-    "url": "https://www.wowhead.com/classic/quest=333/harlan-needs-a-resupply",
-    "source": "wowhead-id-scan",
-    "meta": {}
-  },
-  {
-    "expansion": "classic",
-    "type": "quest",
-    "id": 334,
-    "name": "Package for Thurman",
-    "url": "https://www.wowhead.com/classic/quest=334/package-for-thurman",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=328",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 335,
     "name": "A Noble Brew",
-    "url": "https://www.wowhead.com/classic/quest=335/a-noble-brew",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=335",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 336,
     "name": "A Noble Brew",
-    "url": "https://www.wowhead.com/classic/quest=336/a-noble-brew",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=336",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 337,
     "name": "An Old History Book",
-    "url": "https://www.wowhead.com/classic/quest=337/an-old-history-book",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=337",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 338,
     "name": "The Green Hills of Stranglethorn",
-    "url": "https://www.wowhead.com/classic/quest=338/the-green-hills-of-stranglethorn",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=338",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 339,
     "name": "Chapter I",
-    "url": "https://www.wowhead.com/classic/quest=339/chapter-i",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=339",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 340,
     "name": "Chapter II",
-    "url": "https://www.wowhead.com/classic/quest=340/chapter-ii",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=340",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 341,
     "name": "Chapter III",
-    "url": "https://www.wowhead.com/classic/quest=341/chapter-iii",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=341",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 342,
     "name": "Chapter IV",
-    "url": "https://www.wowhead.com/classic/quest=342/chapter-iv",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=342",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 343,
     "name": "Speaking of Fortitude",
-    "url": "https://www.wowhead.com/classic/quest=343/speaking-of-fortitude",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=343",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 344,
     "name": "Brother Paxton",
-    "url": "https://www.wowhead.com/classic/quest=344/brother-paxton",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=344",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 345,
     "name": "Ink Supplies",
-    "url": "https://www.wowhead.com/classic/quest=345/ink-supplies",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=345",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 346,
     "name": "Return to Kristoff",
-    "url": "https://www.wowhead.com/classic/quest=346/return-to-kristoff",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=346",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
     "type": "quest",
     "id": 347,
     "name": "Rethban Ore",
-    "url": "https://www.wowhead.com/classic/quest=347/rethban-ore",
-    "source": "wowhead-id-scan",
-    "meta": {}
+    "url": "https://www.wowhead.com/classic/quest=347",
+    "source": "wowhead-listview",
+    "meta": {
+      "listview_source": "g_listviews.quests",
+      "page": "https://www.wowhead.com/classic/quests"
+    }
   },
   {
     "expansion": "classic",
