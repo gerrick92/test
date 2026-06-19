@@ -1,1 +1,1 @@
-v1.7 fullscan presets + fixed sqlite FTS rebuild
+v2.1-db-source-fixed
