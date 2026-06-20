@@ -1,1 +1,134 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>WoW Database App</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/static/style.css"></head><body><main class="shell"><header class="hero"><div><p class="eyebrow">Offline MaNGOS database</p><h1>WoW Database App</h1><p class="muted">Vanilla / TBC / WotLK. Search or browse without typing.</p></div><div class="stat"><span>Total entries</span><strong>{{ total }}</strong></div></header>{% if error %}<section class="error"><strong>Error:</strong><pre>{{ error }}</pre><p>Run <code>python scripts\import_db_dumps.py --all</code> and <code>python scripts\diagnose_db.py</code>.</p></section>{% endif %}<section class="counts">{% for c in counts %}<span>{{ c.expansion }} / {{ c.type }}: <strong>{{ c.c }}</strong></span>{% endfor %}</section><form class="search" method="get"><input name="q" value="{{ q }}" placeholder="Search name or ID. Leave empty to browse category."><select name="expansion">{% for value,label in expansions %}<option value="{{ value }}" {% if expansion==value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select><select name="type">{% for value,label in types %}<option value="{{ value }}" {% if typ==value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select><select name="sort">{% for value,label in sorts %}<option value="{{ value }}" {% if sort==value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select><button type="submit">Search / Browse</button></form><nav class="tabs"><a class="{% if expansion=='all' %}active{% endif %}" href="/?expansion=all&type={{ typ }}&sort={{ sort }}&q={{ q }}">All</a><a class="{% if expansion=='vanilla' %}active{% endif %}" href="/?expansion=vanilla&type={{ typ }}&sort={{ sort }}&q={{ q }}">Vanilla</a><a class="{% if expansion=='tbc' %}active{% endif %}" href="/?expansion=tbc&type={{ typ }}&sort={{ sort }}&q={{ q }}">TBC</a><a class="{% if expansion=='wotlk' %}active{% endif %}" href="/?expansion=wotlk&type={{ typ }}&sort={{ sort }}&q={{ q }}">WotLK</a></nav><section class="results">{% for row in rows %}<article class="card"><div class="card-head"><span class="pill">{{ row.expansion }}</span><span class="pill">{{ row.type }}</span><strong>#{{ row.id }}</strong></div><h2>{{ row.name }}</h2><div class="details"><span>Source: {{ row.source_table }}</span>{% for k,v in row.meta_obj.items() %}{% if k not in ['source_file','source_table'] and v %}<span>{{ k }}: {{ v }}</span>{% endif %}{% endfor %}</div><a href="{{ row.url }}" target="_blank" rel="noreferrer">{{ row.url }}</a>{% if row.commands %}<div class="commands"><p>MaNGOS helper</p>{% for cmd in row.commands %}<code>{{ cmd }}</code>{% endfor %}</div>{% endif %}</article>{% else %}<p class="muted">No results. If counts above are zero/missing, import did not read your DB dumps correctly.</p>{% endfor %}</section></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>WoW Database App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Offline MaNGOS Database</p>
+        <h1>WoW Database App</h1>
+        <p class="muted">Vanilla / TBC / WotLK. Search or browse without typing.</p>
+      </div>
+      <div class="stat">
+        <span>Total entries</span>
+        <strong>{{ total }}</strong>
+      </div>
+    </header>
+
+    {% if error %}
+      <section class="error">
+        <strong>Error:</strong>
+        <pre>{{ error }}</pre>
+      </section>
+    {% endif %}
+
+    <section class="counts">
+      {% for c in counts %}
+        <span>{{ c.expansion }} / {{ c.type }}: <strong>{{ c.c }}</strong></span>
+      {% endfor %}
+    </section>
+
+    <form class="search" method="get">
+      <input name="q" value="{{ q }}" placeholder="Search name or ID. Leave empty to browse category.">
+      <select name="expansion">
+        {% for value, label in expansions %}
+          <option value="{{ value }}" {% if expansion == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+      <select name="type">
+        {% for value, label in types %}
+          <option value="{{ value }}" {% if typ == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+      <select name="sort">
+        {% for value, label in sorts %}
+          <option value="{{ value }}" {% if sort == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+      <select name="per_page">
+        {% for option in per_page_options %}
+          <option value="{{ option }}" {% if per_page == option %}selected{% endif %}>{{ option }} / page</option>
+        {% endfor %}
+      </select>
+      <input type="hidden" name="page" value="1">
+      <button type="submit">Search / Browse</button>
+    </form>
+
+    <nav class="tabs">
+      <a class="{% if expansion == 'all' %}active{% endif %}" href="/?expansion=all&type={{ typ }}&sort={{ sort }}&q={{ q }}&per_page={{ per_page }}">All</a>
+      <a class="{% if expansion == 'vanilla' %}active{% endif %}" href="/?expansion=vanilla&type={{ typ }}&sort={{ sort }}&q={{ q }}&per_page={{ per_page }}">Vanilla</a>
+      <a class="{% if expansion == 'tbc' %}active{% endif %}" href="/?expansion=tbc&type={{ typ }}&sort={{ sort }}&q={{ q }}&per_page={{ per_page }}">TBC</a>
+      <a class="{% if expansion == 'wotlk' %}active{% endif %}" href="/?expansion=wotlk&type={{ typ }}&sort={{ sort }}&q={{ q }}&per_page={{ per_page }}">WotLK</a>
+    </nav>
+
+    <section class="pager">
+      <div>
+        <strong>{{ match_total }}</strong> matching results.
+        Page <strong>{{ page }}</strong> of <strong>{{ max_page }}</strong>.
+      </div>
+      <div class="pager-buttons">
+        {% if page > 1 %}
+          <a href="{{ page_url(page - 1) }}">← Previous</a>
+        {% endif %}
+        {% if page < max_page %}
+          <a href="{{ page_url(page + 1) }}">Next →</a>
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="results">
+      {% for row in rows %}
+        <article class="card">
+          <div class="card-head">
+            <span class="pill">{{ row.expansion }}</span>
+            <span class="pill">{{ row.type }}</span>
+            <strong>#{{ row.id }}</strong>
+          </div>
+          <h2>{{ row.name }}</h2>
+
+          <div class="details">
+            <span>Source: {{ row.source_table }}</span>
+            {% for k, v in row.meta_obj.items() %}
+              {% if k not in ['source_file', 'source_table'] and v %}
+                <span>{{ k }}: {{ v }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          <a href="{{ row.url }}" target="_blank" rel="noreferrer">{{ row.url }}</a>
+
+          {% if row.commands %}
+            <div class="commands">
+              <p>MaNGOS helper</p>
+              {% for cmd in row.commands %}
+                <code>{{ cmd }}</code>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </article>
+      {% else %}
+        <p class="muted">No results. Try another filter or search.</p>
+      {% endfor %}
+    </section>
+
+    <section class="pager bottom">
+      <div>
+        Page <strong>{{ page }}</strong> of <strong>{{ max_page }}</strong>.
+      </div>
+      <div class="pager-buttons">
+        {% if page > 1 %}
+          <a href="{{ page_url(page - 1) }}">← Previous</a>
+        {% endif %}
+        {% if page < max_page %}
+          <a href="{{ page_url(page + 1) }}">Next →</a>
+        {% endif %}
+      </div>
+    </section>
+  </main>
+</body>
+</html>

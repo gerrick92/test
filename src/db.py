@@ -43,8 +43,17 @@ def reset_schema(conn: sqlite3.Connection) -> None:
 
 def create_fts(conn: sqlite3.Connection) -> None:
     conn.execute("DROP TABLE IF EXISTS entries_fts")
-    conn.execute("CREATE VIRTUAL TABLE entries_fts USING fts5(name, expansion, type)")
-    conn.execute("INSERT INTO entries_fts(rowid,name,expansion,type) SELECT rowid,name,expansion,type FROM entries")
+    conn.execute("""
+        CREATE VIRTUAL TABLE entries_fts USING fts5(
+            name,
+            expansion,
+            type
+        )
+    """)
+    conn.execute("""
+        INSERT INTO entries_fts(rowid, name, expansion, type)
+        SELECT rowid, name, expansion, type FROM entries
+    """)
     conn.commit()
 
 def integrity(conn: sqlite3.Connection) -> str:
