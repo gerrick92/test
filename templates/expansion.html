@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}{{ current.title }}{% endblock %}
+{% block body_class %}{{ body_class }}{% endblock %}
+{% block content %}
+<main class="app-layout">
+  <aside class="sidebar">
+    <div class="expansion-mark">
+      <img src="/static/img/{{ current.icon }}" alt="{{ current.label }}">
+      <span>{{ current.label }}</span>
+    </div>
+    <a class="home-button" href="{{ url_for('home') }}"><img src="/static/img/home_hearthstone.webp" alt="Home"><span>Home</span></a>
+    <nav class="side-nav">
+      {% for value, label in types %}
+        <a class="{% if typ == value %}active{% endif %}" href="{{ url_for('expansion_page', expansion=expansion, type=value, sort=sort, per_page=per_page) }}">{{ label }}</a>
+      {% endfor %}
+    </nav>
+  </aside>
+
+  <section class="content-panel">
+    <header class="topbar">
+      <div class="section-title"><h1>{{ current.title }}</h1><p>{{ match_total }} matching results</p></div>
+      <a class="icon-button" href="{{ url_for('settings') }}"><img src="/static/img/settings_gnome.webp" alt="Settings"></a>
+    </header>
+
+    {% if error %}<section class="error"><strong>Error:</strong><pre>{{ error }}</pre></section>{% endif %}
+
+    <form class="search" method="get">
+      <input name="q" value="{{ q }}" placeholder="Search name or ID. Leave empty to browse category.">
+      <input type="hidden" name="type" value="{{ typ }}">
+      <select name="sort">{% for value,label in sorts %}<option value="{{ value }}" {% if sort == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select>
+      <select name="per_page">{% for option in per_page_options %}<option value="{{ option }}" {% if per_page == option %}selected{% endif %}>{{ option }} / page</option>{% endfor %}</select>
+      <button type="submit">Search / Browse</button>
+      {% if typ == 'item' %}
+        <div class="advanced-filters">
+          <label>Item group<select name="item_group">{% for value,label in item_groups %}<option value="{{ value }}" {% if item_group == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label>
+          <label>Equipment slot<select name="equip_slot">{% for value,label in equip_slots %}<option value="{{ value }}" {% if equip_slot == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></label>
+        </div>
+      {% endif %}
+      <input type="hidden" name="page" value="1">
+    </form>
+
+    <section class="pager">
+      <div>Page <strong>{{ page }}</strong> of <strong>{{ max_page }}</strong>.</div>
+      <div class="pager-buttons">
+        {% if page > 1 %}<a href="{{ page_url(1) }}">First</a><a href="{{ page_url(page - 1) }}">← Previous</a>{% endif %}
+        {% for p in pages %}<a class="{% if p == page %}active{% endif %}" href="{{ page_url(p) }}">{{ p }}</a>{% endfor %}
+        {% if page < max_page %}<a href="{{ page_url(page + 1) }}">Next →</a><a href="{{ page_url(max_page) }}">Last</a>{% endif %}
+      </div>
+      <form class="jump-form" method="get">
+        <input type="hidden" name="q" value="{{ q }}"><input type="hidden" name="type" value="{{ typ }}"><input type="hidden" name="sort" value="{{ sort }}"><input type="hidden" name="per_page" value="{{ per_page }}"><input type="hidden" name="item_group" value="{{ item_group }}"><input type="hidden" name="equip_slot" value="{{ equip_slot }}">
+        <label>Go to page <input name="page" value="{{ page }}"></label><button type="submit">Go</button>
+      </form>
+    </section>
+
+    <section class="results">
+      {% for row in rows %}
+        <article class="card">
+          <div class="card-head"><span class="pill">{{ row.expansion }}</span><span class="pill">{{ row.type }}</span><strong>#{{ row.id }}</strong></div>
+          <h2>{{ row.name }}</h2>
+          <div class="details"><span>Source: {{ row.source_table }}</span>{% for k,v in row.meta_obj.items() %}{% if k not in ['source_file','source_table'] and v %}<span>{{ k }}: {{ v }}</span>{% endif %}{% endfor %}</div>
+          <a href="{{ row.url }}" target="_blank" rel="noreferrer">{{ row.url }}</a>
+          {% if row.commands %}<div class="commands"><p>MaNGOS helper</p>{% for cmd in row.commands %}<code>{{ cmd }}</code>{% endfor %}</div>{% endif %}
+        </article>
+      {% else %}
+        <p class="muted">No results. Try another filter or search.</p>
+      {% endfor %}
+    </section>
+  </section>
+</main>
+{% endblock %}
