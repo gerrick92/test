@@ -55,15 +55,36 @@
           <option value="{{ option }}" {% if per_page == option %}selected{% endif %}>{{ option }} / page</option>
         {% endfor %}
       </select>
-      <input type="hidden" name="page" value="1">
       <button type="submit">Search / Browse</button>
+
+      <div class="advanced-filters">
+        <label>
+          Item group
+          <select name="item_group">
+            {% for value, label in item_groups %}
+              <option value="{{ value }}" {% if item_group == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </label>
+
+        <label>
+          Equipment slot
+          <select name="equip_slot">
+            {% for value, label in equip_slots %}
+              <option value="{{ value }}" {% if equip_slot == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </label>
+      </div>
+
+      <input type="hidden" name="page" value="1">
     </form>
 
     <nav class="tabs">
-      <a class="{% if expansion == 'all' %}active{% endif %}" href="/?expansion=all&type={{ typ }}&sort={{ sort }}&q={{ q }}&per_page={{ per_page }}">All</a>
-      <a class="{% if expansion == 'vanilla' %}active{% endif %}" href="/?expansion=vanilla&type={{ typ }}&sort={{ sort }}&q={{ q }}&per_page={{ per_page }}">Vanilla</a>
-      <a class="{% if expansion == 'tbc' %}active{% endif %}" href="/?expansion=tbc&type={{ typ }}&sort={{ sort }}&q={{ q }}&per_page={{ per_page }}">TBC</a>
-      <a class="{% if expansion == 'wotlk' %}active{% endif %}" href="/?expansion=wotlk&type={{ typ }}&sort={{ sort }}&q={{ q }}&per_page={{ per_page }}">WotLK</a>
+      <a class="{% if expansion == 'all' %}active{% endif %}" href="/?expansion=all&type={{ typ }}&sort={{ sort }}&q={{ q }}&per_page={{ per_page }}&item_group={{ item_group }}&equip_slot={{ equip_slot }}">All</a>
+      <a class="{% if expansion == 'vanilla' %}active{% endif %}" href="/?expansion=vanilla&type={{ typ }}&sort={{ sort }}&q={{ q }}&per_page={{ per_page }}&item_group={{ item_group }}&equip_slot={{ equip_slot }}">Vanilla</a>
+      <a class="{% if expansion == 'tbc' %}active{% endif %}" href="/?expansion=tbc&type={{ typ }}&sort={{ sort }}&q={{ q }}&per_page={{ per_page }}&item_group={{ item_group }}&equip_slot={{ equip_slot }}">TBC</a>
+      <a class="{% if expansion == 'wotlk' %}active{% endif %}" href="/?expansion=wotlk&type={{ typ }}&sort={{ sort }}&q={{ q }}&per_page={{ per_page }}&item_group={{ item_group }}&equip_slot={{ equip_slot }}">WotLK</a>
     </nav>
 
     <section class="pager">
@@ -71,14 +92,34 @@
         <strong>{{ match_total }}</strong> matching results.
         Page <strong>{{ page }}</strong> of <strong>{{ max_page }}</strong>.
       </div>
+
       <div class="pager-buttons">
         {% if page > 1 %}
+          <a href="{{ page_url(1) }}">First</a>
           <a href="{{ page_url(page - 1) }}">← Previous</a>
         {% endif %}
+
+        {% for p in pages %}
+          <a class="{% if p == page %}active{% endif %}" href="{{ page_url(p) }}">{{ p }}</a>
+        {% endfor %}
+
         {% if page < max_page %}
           <a href="{{ page_url(page + 1) }}">Next →</a>
+          <a href="{{ page_url(max_page) }}">Last</a>
         {% endif %}
       </div>
+
+      <form class="jump-form" method="get">
+        <input type="hidden" name="q" value="{{ q }}">
+        <input type="hidden" name="expansion" value="{{ expansion }}">
+        <input type="hidden" name="type" value="{{ typ }}">
+        <input type="hidden" name="sort" value="{{ sort }}">
+        <input type="hidden" name="per_page" value="{{ per_page }}">
+        <input type="hidden" name="item_group" value="{{ item_group }}">
+        <input type="hidden" name="equip_slot" value="{{ equip_slot }}">
+        <label>Go to page <input name="page" value="{{ page }}"></label>
+        <button type="submit">Go</button>
+      </form>
     </section>
 
     <section class="results">
@@ -122,10 +163,17 @@
       </div>
       <div class="pager-buttons">
         {% if page > 1 %}
+          <a href="{{ page_url(1) }}">First</a>
           <a href="{{ page_url(page - 1) }}">← Previous</a>
         {% endif %}
+
+        {% for p in pages %}
+          <a class="{% if p == page %}active{% endif %}" href="{{ page_url(p) }}">{{ p }}</a>
+        {% endfor %}
+
         {% if page < max_page %}
           <a href="{{ page_url(page + 1) }}">Next →</a>
+          <a href="{{ page_url(max_page) }}">Last</a>
         {% endif %}
       </div>
     </section>
