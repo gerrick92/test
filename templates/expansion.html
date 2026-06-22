@@ -10,7 +10,7 @@
     </div>
 
     <a class="home-button wow-link-panel" href="{{ url_for('home') }}">
-      <img src="{{ url_for('static', filename='img/home_hearthstone.png') }}" alt="">
+      <img src="{{ url_for('static', filename='img/homeicon.png') }}" alt="Home">
       <span>Home</span>
     </a>
 
@@ -22,16 +22,16 @@
   </aside>
 
   <main class="content-panel">
-    <div class="topbar wow-panel">
-      <div class="section-title title-badge">
-        <img class="header-icon" src="{{ url_for('static', filename='img/' + current.icon) }}" alt="{{ current.label }} icon">
-        <div>
-          <h1>{{ current.title }}</h1>
-          <p>{{ match_total }} matching results</p>
-        </div>
+    <div class="topbar wow-panel expansion-topbar">
+      <div class="section-title">
+        <img class="expansion-header-logo" src="{{ url_for('static', filename='img/' + current.logo) }}" alt="{{ current.title }}">
+        {% if expansion == 'all' %}
+          <p class="placeholder-note">All Expansions placeholder header. Custom all-data artwork can be added later.</p>
+        {% endif %}
+        <p>{{ match_total }} matching results</p>
       </div>
       <a class="icon-button" href="{{ url_for('settings') }}" title="Settings" aria-label="Settings">
-        <img src="{{ url_for('static', filename='img/settings_gnome.png') }}" alt="">
+        <img src="{{ url_for('static', filename='img/settingsicon.png') }}" alt="Settings">
       </a>
     </div>
 
@@ -45,12 +45,12 @@
     <form class="search wow-panel" method="get">
       <input type="hidden" name="type" value="{{ typ }}">
       <input type="text" name="q" value="{{ q }}" placeholder="Search name or ID. Leave empty to browse category.">
-      <select name="sort">
+      <select name="sort" aria-label="Sort results">
         {% for value, label in sorts %}
           <option value="{{ value }}" {% if sort == value %}selected{% endif %}>{{ label }}</option>
         {% endfor %}
       </select>
-      <select name="per_page">
+      <select name="per_page" aria-label="Results per page">
         {% for option in per_page_options %}
           <option value="{{ option }}" {% if per_page == option %}selected{% endif %}>{{ option }} / page</option>
         {% endfor %}

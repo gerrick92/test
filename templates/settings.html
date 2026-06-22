@@ -2,21 +2,19 @@
 {% block title %}Settings{% endblock %}
 {% block body_class %}{{ body_class }}{% endblock %}
 {% block content %}
-<main class="app-layout single oldwow-shell settings-page">
+<main class="app-layout single oldwow-shell">
   <section class="settings-panel wow-panel">
-    <div class="settings-header">
+    <div class="topbar settings-topbar">
       <a class="home-button wow-link-panel" href="{{ url_for('home') }}">
-        <img src="{{ url_for('static', filename='img/home_hearthstone.png') }}" alt="">
+        <img src="{{ url_for('static', filename='img/homeicon.png') }}" alt="Home">
         <span>Home</span>
       </a>
-
       <div class="section-title">
         <h1>Settings</h1>
-        <p>Database information, tools and links.</p>
+        <p>Database statistics, tools and music settings</p>
       </div>
-
-      <div class="settings-gnome" aria-hidden="true">
-        <img src="{{ url_for('static', filename='img/settings_gnome.png') }}" alt="">
+      <div class="icon-button static" aria-hidden="true">
+        <img src="{{ url_for('static', filename='img/settingsicon.png') }}" alt="">
       </div>
     </div>
 
@@ -27,13 +25,31 @@
       </div>
     {% endif %}
 
-    <div class="settings-actions">
-      <a class="all-data-card" href="{{ url_for('expansion_page', expansion='all', type='all') }}">All Data</a>
+    <div class="settings-grid">
+      <section class="settings-card wow-parchment music-settings" aria-labelledby="music-settings-title">
+        <h2 id="music-settings-title">Music</h2>
+        <label class="toggle-row" for="music-enabled">
+          <span>Music on/off</span>
+          <input id="music-enabled" type="checkbox" checked>
+        </label>
+        <label class="range-row" for="music-volume">
+          <span>Volume</span>
+          <input id="music-volume" type="range" min="0" max="100" value="60">
+          <strong id="music-volume-value">60%</strong>
+        </label>
+        <p class="settings-note">Music is stored locally in your browser settings. Browsers may require one click before sound starts.</p>
+      </section>
+
+      <section class="settings-card wow-parchment all-data-settings" aria-labelledby="all-data-title">
+        <h2 id="all-data-title">All Data</h2>
+        <p>Browse every loaded expansion in one combined view.</p>
+        <a class="settings-action" href="{{ url_for('expansion_page', expansion='all') }}">Open All Expansions</a>
+      </section>
     </div>
 
     <div class="stats-total wow-parchment">
       <h2>Database statistics</h2>
-      <p>Total local entries: <strong>{{ total }}</strong></p>
+      <p>Total entries: <strong>{{ total }}</strong></p>
     </div>
 
     <div class="stats-grid">

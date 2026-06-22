@@ -1,51 +1,112 @@
-(() => {
-  const button = document.querySelector('.music-toggle');
-  const audio = document.getElementById('page-music');
-  if (!button || !audio) return;
+(function () {
+  const STORAGE_ENABLED = "wowDatabaseMusicEnabled";
+  const STORAGE_VOLUME = "wowDatabaseMusicVolume";
+  const DEFAULT_VOLUME = 0.6;
+  const EXTENSIONS = ["mp3", "ogg", "wav", "m4a"];
 
-  const src = button.dataset.musicSrc;
-  const key = 'wowdb-music-enabled';
-  const enabled = localStorage.getItem(key) === 'true';
+  const body = document.body;
+  const musicKey = body?.dataset?.musicKey || "homepage";
+  const enabledInput = document.getElementById("music-enabled");
+  const volumeInput = document.getElementById("music-volume");
+  const volumeValue = document.getElementById("music-volume-value");
 
-  audio.volume = 0.45;
-  audio.src = src;
-
-  function setState(isPlaying) {
-    button.classList.toggle('is-playing', isPlaying);
-    button.setAttribute('aria-pressed', String(isPlaying));
-    const text = button.querySelector('.music-toggle-text');
-    if (text) text.textContent = isPlaying ? 'Music on' : 'Music';
+  let enabled = localStorage.getItem(STORAGE_ENABLED);
+  if (enabled === null) {
+    enabled = "true";
+    localStorage.setItem(STORAGE_ENABLED, enabled);
   }
 
-  async function playMusic() {
-    try {
-      await audio.play();
-      localStorage.setItem(key, 'true');
-      setState(true);
-    } catch {
-      localStorage.setItem(key, 'false');
-      setState(false);
+  let volume = Number(localStorage.getItem(STORAGE_VOLUME));
+  if (!Number.isFinite(volume)) {
+    volume = DEFAULT_VOLUME;
+    localStorage.setItem(STORAGE_VOLUME, String(volume));
+  }
+  volume = Math.max(0, Math.min(1, volume));
+
+  let extIndex = 0;
+  const audio = new Audio();
+  audio.loop = true;
+  audio.preload = "auto";
+  audio.volume = volume;
+
+  function sourceForCurrentExtension() {
+    return `/music/${musicKey}.${EXTENSIONS[extIndex]}`;
+  }
+
+  function setSource() {
+    audio.src = sourceForCurrentExtension();
+    audio.currentTime = 0;
+  }
+
+  function isEnabled() {
+    return localStorage.getItem(STORAGE_ENABLED) !== "false";
+  }
+
+  function setEnabled(nextEnabled) {
+    localStorage.setItem(STORAGE_ENABLED, nextEnabled ? "true" : "false");
+    if (enabledInput) enabledInput.checked = nextEnabled;
+    if (nextEnabled) {
+      playFromStart();
+    } else {
+      audio.pause();
     }
   }
 
-  function pauseMusic() {
-    audio.pause();
-    localStorage.setItem(key, 'false');
-    setState(false);
+  function setVolume(nextVolume) {
+    volume = Math.max(0, Math.min(1, nextVolume));
+    audio.volume = volume;
+    localStorage.setItem(STORAGE_VOLUME, String(volume));
+    if (volumeInput) volumeInput.value = String(Math.round(volume * 100));
+    if (volumeValue) volumeValue.textContent = `${Math.round(volume * 100)}%`;
   }
 
-  button.addEventListener('click', () => {
-    if (audio.paused) {
-      playMusic();
-    } else {
-      pauseMusic();
+  function playFromStart() {
+    if (!isEnabled()) return;
+    if (!audio.src) setSource();
+    audio.currentTime = 0;
+    audio.play().catch(() => {
+      // Browsers often block autoplay until the first user interaction.
+    });
+  }
+
+  audio.addEventListener("error", () => {
+    extIndex += 1;
+    if (extIndex >= EXTENSIONS.length) {
+      audio.pause();
+      return;
+    }
+    setSource();
+    if (isEnabled()) {
+      audio.play().catch(() => {});
     }
   });
 
-  if (enabled) {
-    // Browser autoplay rules may still require the first click.
-    playMusic();
-  } else {
-    setState(false);
+  if (enabledInput) {
+    enabledInput.checked = isEnabled();
+    enabledInput.addEventListener("change", () => setEnabled(enabledInput.checked));
   }
+
+  if (volumeInput) {
+    volumeInput.value = String(Math.round(volume * 100));
+    if (volumeValue) volumeValue.textContent = `${Math.round(volume * 100)}%`;
+    volumeInput.addEventListener("input", () => setVolume(Number(volumeInput.value) / 100));
+  }
+
+  setSource();
+  setVolume(volume);
+
+  if (isEnabled()) {
+    playFromStart();
+  }
+
+  // One click anywhere can unlock audio after browser autoplay blocking.
+  document.addEventListener(
+    "pointerdown",
+    () => {
+      if (isEnabled() && audio.paused) {
+        audio.play().catch(() => {});
+      }
+    },
+    { once: true }
+  );
 })();
