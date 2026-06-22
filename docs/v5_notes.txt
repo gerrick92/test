@@ -1,0 +1,16 @@
+WoW Database Explorer – v5 notes
+
+What was changed now:
+- TBC logo redone with proper transparency.
+- WotLK logo exported as transparent PNG.
+- Vanilla and TBC round icons cleaned so the grey/checkerboard background is removed.
+- Hearthstone home icon redone so the stone remains intact.
+- All expansion icons use the same UI size.
+- Expansion pages now use the round icon instead of the big logo in the header.
+- UI direction moved toward old-school WoW website inspiration.
+
+Design direction carried forward:
+- Vanilla = classic old WoW feel
+- TBC = greener fel/demonic aura
+- WotLK = colder icy/Northrend feel
+- no login/password/forum/account clutter, only the feel

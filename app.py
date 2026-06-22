@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import json
@@ -10,25 +9,68 @@ from src.mangos import commands_for
 app = Flask(__name__)
 
 EXPANSION_DATA = {
-    "vanilla": {"label": "Vanilla", "title": "World of Warcraft Classic", "logo": "vanilla_logo_large.webp", "icon": "vanilla_icon.png", "body_class": "page-vanilla"},
-    "tbc": {"label": "TBC", "title": "The Burning Crusade", "logo": "tbc_logo_large.jpg", "icon": "tbc_icon.png", "body_class": "page-tbc"},
-    "wotlk": {"label": "WotLK", "title": "Wrath of the Lich King", "logo": "wotlk_logo_large.jpg", "icon": "wotlk_icon.png", "body_class": "page-wotlk"},
-    "all": {"label": "All Data", "title": "All Expansions", "logo": None, "icon": "home_hearthstone.png", "body_class": "page-all"},
+    "vanilla": {
+        "label": "Vanilla",
+        "title": "World of Warcraft Classic",
+        "logo": "vanilla_logo_large.png",
+        "icon": "vanilla_icon.png",
+        "body_class": "page-vanilla",
+    },
+    "tbc": {
+        "label": "TBC",
+        "title": "The Burning Crusade",
+        "logo": "tbc_logo_large.png",
+        "icon": "tbc_icon.png",
+        "body_class": "page-tbc",
+    },
+    "wotlk": {
+        "label": "WotLK",
+        "title": "Wrath of the Lich King",
+        "logo": "wotlk_logo_large.png",
+        "icon": "wotlk_icon.png",
+        "body_class": "page-wotlk",
+    },
+    "all": {
+        "label": "All Data",
+        "title": "All Expansions",
+        "logo": None,
+        "icon": "home_hearthstone.png",
+        "body_class": "page-all",
+    },
 }
 
 TYPES = [("quest", "Quests"), ("item", "Items"), ("npc", "NPCs"), ("object", "Objects")]
 TYPE_ALL = [("all", "All types"), *TYPES]
-SORTS = [("id_asc", "ID low → high"), ("id_desc", "ID high → low"), ("name_asc", "Name A → Z"), ("name_desc", "Name Z → A")]
+SORTS = [
+    ("id_asc", "ID low → high"),
+    ("id_desc", "ID high → low"),
+    ("name_asc", "Name A → Z"),
+    ("name_desc", "Name Z → A"),
+]
 PER_PAGE_OPTIONS = [50, 100, 200, 500]
-
 ITEM_GROUPS = [
-    ("all", "All item groups"), ("cloth", "Cloth"), ("leather", "Leather"), ("mail", "Mail"),
-    ("plate", "Plate"), ("weapons", "Weapons"), ("jewelry", "Jewelry"), ("trinkets", "Trinkets"),
-    ("consumables", "Consumables"), ("quest", "Quest items"), ("misc", "Misc"),
+    ("all", "All item groups"),
+    ("cloth", "Cloth"),
+    ("leather", "Leather"),
+    ("mail", "Mail"),
+    ("plate", "Plate"),
+    ("weapons", "Weapons"),
+    ("jewelry", "Jewelry"),
+    ("trinkets", "Trinkets"),
+    ("consumables", "Consumables"),
+    ("quest", "Quest items"),
+    ("misc", "Misc"),
 ]
 EQUIP_SLOTS = [
-    ("all", "All slots"), ("head", "Head"), ("chest", "Chest"), ("legs", "Legs"),
-    ("feet", "Feet"), ("hands", "Hands"), ("ring", "Ring"), ("trinket", "Trinket"), ("weapon", "Weapon"),
+    ("all", "All slots"),
+    ("head", "Head"),
+    ("chest", "Chest"),
+    ("legs", "Legs"),
+    ("feet", "Feet"),
+    ("hands", "Hands"),
+    ("ring", "Ring"),
+    ("trinket", "Trinket"),
+    ("weapon", "Weapon"),
 ]
 
 ITEM_GROUP_SQL = {
@@ -43,6 +85,7 @@ ITEM_GROUP_SQL = {
     "quest": "json_extract(e.meta, '$.class') = '12'",
     "misc": "json_extract(e.meta, '$.class') = '15'",
 }
+
 EQUIP_SLOT_SQL = {
     "head": "json_extract(e.meta, '$.InventoryType') = '1'",
     "chest": "json_extract(e.meta, '$.InventoryType') IN ('5','20')",
@@ -54,12 +97,14 @@ EQUIP_SLOT_SQL = {
     "weapon": "json_extract(e.meta, '$.InventoryType') IN ('13','14','15','16','17','21','22','25','26','28')",
 }
 
+
 def safe_int(value: str | None, default: int, minimum: int, maximum: int) -> int:
     try:
         parsed = int(value or default)
     except ValueError:
         return default
     return max(minimum, min(maximum, parsed))
+
 
 def pagination_window(page: int, max_page: int, width: int = 5) -> list[int]:
     if max_page <= width:
@@ -70,6 +115,7 @@ def pagination_window(page: int, max_page: int, width: int = 5) -> list[int]:
     start = max(1, end - width + 1)
     return list(range(start, end + 1))
 
+
 @app.route("/")
 def home():
     total = 0
@@ -77,10 +123,13 @@ def home():
     try:
         conn = connect()
         total = conn.execute("SELECT COUNT(*) FROM entries").fetchone()[0]
-        counts = conn.execute("SELECT expansion, type, COUNT(*) c FROM entries GROUP BY expansion, type ORDER BY expansion, type").fetchall()
+        counts = conn.execute(
+            "SELECT expansion, type, COUNT(*) c FROM entries GROUP BY expansion, type ORDER BY expansion, type"
+        ).fetchall()
     except Exception:
         pass
-    return render_template("home.html", expansion_data=EXPANSION_DATA, total=total, counts=counts)
+    return render_template("home.html", expansion_data=EXPANSION_DATA, total=total, counts=counts, body_class="page-home")
+
 
 @app.route("/settings")
 def settings():
@@ -90,10 +139,13 @@ def settings():
     try:
         conn = connect()
         total = conn.execute("SELECT COUNT(*) FROM entries").fetchone()[0]
-        counts = conn.execute("SELECT expansion, type, COUNT(*) c FROM entries GROUP BY expansion, type ORDER BY expansion, type").fetchall()
+        counts = conn.execute(
+            "SELECT expansion, type, COUNT(*) c FROM entries GROUP BY expansion, type ORDER BY expansion, type"
+        ).fetchall()
     except Exception as exc:
         error = str(exc)
     return render_template("settings.html", total=total, counts=counts, error=error, body_class="page-settings")
+
 
 @app.route("/expansion/<expansion>")
 def expansion_page(expansion: str):
@@ -112,7 +164,12 @@ def expansion_page(expansion: str):
         item_group = "all"
         equip_slot = "all"
 
-    order = {"id_asc": "e.id ASC", "id_desc": "e.id DESC", "name_asc": "e.name ASC", "name_desc": "e.name DESC"}.get(sort, "e.id ASC")
+    order = {
+        "id_asc": "e.id ASC",
+        "id_desc": "e.id DESC",
+        "name_asc": "e.name ASC",
+        "name_desc": "e.name DESC",
+    }.get(sort, "e.id ASC")
 
     rows = []
     total = 0
@@ -123,9 +180,8 @@ def expansion_page(expansion: str):
     try:
         conn = connect()
         total = conn.execute("SELECT COUNT(*) FROM entries").fetchone()[0]
-
         where = []
-        params = []
+        params: list[object] = []
 
         if expansion != "all":
             where.append("e.expansion = ?")
@@ -155,7 +211,7 @@ def expansion_page(expansion: str):
         page = min(page, max_page)
         offset = (page - 1) * per_page
 
-        sql = f"SELECT e.* FROM entries e {where_sql} ORDER BY {order} LIMIT ? OFFSET ?"
+        sql = f"SELECT e.* FROM entries e{where_sql} ORDER BY {order} LIMIT ? OFFSET ?"
         for r in conn.execute(sql, [*params, per_page, offset]):
             d = dict(r)
             try:
@@ -164,19 +220,29 @@ def expansion_page(expansion: str):
                 d["meta_obj"] = {}
             d["commands"] = commands_for(d)
             rows.append(d)
-
     except Exception as exc:
         error = str(exc)
 
     pages = pagination_window(page, max_page)
 
     def page_url(target_page: int) -> str:
-        return url_for("expansion_page", expansion=expansion, q=q, type=typ, sort=sort, item_group=item_group, equip_slot=equip_slot, page=target_page, per_page=per_page)
+        return url_for(
+            "expansion_page",
+            expansion=expansion,
+            q=q,
+            type=typ,
+            sort=sort,
+            item_group=item_group,
+            equip_slot=equip_slot,
+            page=target_page,
+            per_page=per_page,
+        )
 
     return render_template(
         "expansion.html",
         expansion=expansion,
         current=EXPANSION_DATA[expansion],
+        expansion_data=EXPANSION_DATA,
         q=q,
         typ=typ,
         sort=sort,
@@ -198,6 +264,7 @@ def expansion_page(expansion: str):
         error=error,
         body_class=EXPANSION_DATA[expansion]["body_class"],
     )
+
 
 if __name__ == "__main__":
     app.run(debug=True)

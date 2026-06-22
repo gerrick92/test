@@ -2,21 +2,43 @@
 {% block title %}Settings{% endblock %}
 {% block body_class %}{{ body_class }}{% endblock %}
 {% block content %}
-<main class="app-layout single">
-  <header class="topbar">
-    <a class="icon-button transparent-icon" href="{{ url_for('home') }}"><img src="/static/img/home_hearthstone.png" alt="Home"></a>
-    <div class="section-title"><h1>Settings</h1><p>Database statistics and tools</p></div>
-    <div class="icon-button transparent-icon static"><img src="/static/img/settings_gnome.png" alt="Settings"></div>
-  </header>
-  {% if error %}<section class="error"><strong>Error:</strong><pre>{{ error }}</pre></section>{% endif %}
-  <section class="settings-panel">
-    <h2>Database Statistics</h2>
-    <p class="muted">Total entries: <strong>{{ total }}</strong></p>
+<main class="app-layout single oldwow-shell">
+  <section class="settings-panel wow-panel">
+    <div class="topbar settings-topbar">
+      <a class="home-button wow-link-panel" href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='img/home_hearthstone.png') }}" alt="Home">
+        <span>Home</span>
+      </a>
+      <div class="section-title">
+        <h1>Settings</h1>
+        <p>Database statistics and tools</p>
+      </div>
+      <div class="icon-button static" aria-hidden="true">
+        <img src="{{ url_for('static', filename='img/settings_gnome.png') }}" alt="Settings">
+      </div>
+    </div>
+
+    {% if error %}
+      <div class="error wow-panel">
+        <strong>Error:</strong>
+        <p>{{ error }}</p>
+      </div>
+    {% endif %}
+
+    <div class="stats-total wow-parchment">
+      <h2>Database statistics</h2>
+      <p>Total entries: <strong>{{ total }}</strong></p>
+    </div>
+
     <div class="stats-grid">
       {% for exp in ['vanilla', 'tbc', 'wotlk'] %}
-        <article class="stat-card">
+        <article class="stat-card wow-parchment">
           <h3>{{ exp|capitalize }}</h3>
-          {% for c in counts %}{% if c.expansion == exp %}<p>{{ c.type }} <strong>{{ c.c }}</strong></p>{% endif %}{% endfor %}
+          {% for c in counts %}
+            {% if c.expansion == exp %}
+              <p><span>{{ c.type }}</span><strong>{{ c.c }}</strong></p>
+            {% endif %}
+          {% endfor %}
         </article>
       {% endfor %}
     </div>

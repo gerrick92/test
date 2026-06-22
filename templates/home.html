@@ -1,18 +1,28 @@
 {% extends "base.html" %}
 {% block title %}WoW Database Explorer{% endblock %}
-{% block body_class %}page-home{% endblock %}
+{% block body_class %}{{ body_class }}{% endblock %}
 {% block content %}
-<main class="landing">
-  <div class="landing-overlay">
-    <p class="landing-kicker">Offline MaNGOS Database</p>
-    <h1>WoW Database Explorer</h1>
-    <p class="landing-subtitle">{{ total }} local entries loaded</p>
-    <section class="expansion-select">
-      <a class="expansion-card" href="{{ url_for('expansion_page', expansion='vanilla') }}"><img src="/static/img/vanilla_logo_large.webp" alt="World of Warcraft Classic"></a>
-      <a class="expansion-card" href="{{ url_for('expansion_page', expansion='tbc') }}"><img src="/static/img/tbc_logo_large.jpg" alt="The Burning Crusade"></a>
-      <a class="expansion-card" href="{{ url_for('expansion_page', expansion='wotlk') }}"><img src="/static/img/wotlk_logo_large.jpg" alt="Wrath of the Lich King"></a>
+<main class="landing oldwow-shell">
+  <section class="landing-overlay wow-panel wow-panel-wide">
+    <p class="small-count">{{ total }} local entries loaded</p>
+    <div class="landing-heading">
+      <p class="landing-kicker">Offline MaNGOS Database</p>
+      <h1>WoW Database Explorer</h1>
+      <p class="landing-subtitle">Classic, TBC and WotLK with local browsing, filters, pagination, Wowhead links and MaNGOS helper commands.</p>
+    </div>
+
+    <div class="expansion-select">
+      <a class="expansion-card wow-panel" href="{{ url_for('expansion_page', expansion='vanilla') }}" aria-label="Open World of Warcraft Classic">
+        <img src="{{ url_for('static', filename='img/' + expansion_data['vanilla']['logo']) }}" alt="World of Warcraft Classic">
+      </a>
+      <a class="expansion-card wow-panel" href="{{ url_for('expansion_page', expansion='tbc') }}" aria-label="Open The Burning Crusade">
+        <img src="{{ url_for('static', filename='img/' + expansion_data['tbc']['logo']) }}" alt="The Burning Crusade">
+      </a>
+      <a class="expansion-card wow-panel" href="{{ url_for('expansion_page', expansion='wotlk') }}" aria-label="Open Wrath of the Lich King">
+        <img src="{{ url_for('static', filename='img/' + expansion_data['wotlk']['logo']) }}" alt="Wrath of the Lich King">
+      </a>
       <a class="all-data-card" href="{{ url_for('expansion_page', expansion='all') }}">All Data</a>
-    </section>
-  </div>
+    </div>
+  </section>
 </main>
 {% endblock %}

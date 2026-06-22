@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}WoW Database App{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/static/style.css">
+  <title>{% block title %}WoW Database Explorer{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body class="{% block body_class %}{% endblock %}">
+<body class="{% block body_class %}{% if body_class %}{{ body_class }}{% endif %}{% endblock %}">
   {% block content %}{% endblock %}
 </body>
 </html>

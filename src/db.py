@@ -1,9 +1,9 @@
 from __future__ import annotations
+
 import sqlite3
 from pathlib import Path
 
 DB_PATH = Path("data/db/wow.db")
-
 SCHEMA = """
 DROP TABLE IF EXISTS entries_fts;
 DROP TABLE IF EXISTS entries;
@@ -44,15 +44,15 @@ def reset_schema(conn: sqlite3.Connection) -> None:
 def create_fts(conn: sqlite3.Connection) -> None:
     conn.execute("DROP TABLE IF EXISTS entries_fts")
     conn.execute("""
-        CREATE VIRTUAL TABLE entries_fts USING fts5(
-            name,
-            expansion,
-            type
-        )
+    CREATE VIRTUAL TABLE entries_fts USING fts5(
+        name,
+        expansion,
+        type
+    )
     """)
     conn.execute("""
-        INSERT INTO entries_fts(rowid, name, expansion, type)
-        SELECT rowid, name, expansion, type FROM entries
+    INSERT INTO entries_fts(rowid, name, expansion, type)
+    SELECT rowid, name, expansion, type FROM entries
     """)
     conn.commit()
 
