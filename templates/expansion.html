@@ -25,9 +25,6 @@
     <header class="topbar panel-shell">
       <div class="section-title logo-title">
         <img class="expansion-header-logo" src="{{ url_for('static', filename='img/' + current.logo) }}" alt="{{ current.title }}">
-        {% if expansion == 'all' %}
-          <p class="header-note">All Expansions placeholder header. Custom all-data artwork can be added later.</p>
-        {% endif %}
         <p>{{ match_total }} matching results</p>
       </div>
       <a class="settings-button" href="{{ url_for('settings') }}" title="Settings" aria-label="Settings">
