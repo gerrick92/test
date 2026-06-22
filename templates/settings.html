@@ -2,59 +2,57 @@
 {% block title %}Settings{% endblock %}
 {% block body_class %}{{ body_class }}{% endblock %}
 {% block content %}
-<main class="app-layout single oldwow-shell">
-  <section class="settings-panel wow-panel">
-    <div class="topbar settings-topbar">
-      <a class="home-button wow-link-panel" href="{{ url_for('home') }}">
+<main class="settings-page">
+  <section class="settings-shell panel-shell">
+    <header class="settings-header">
+      <a class="home-button settings-home" href="{{ url_for('home') }}">
         <img src="{{ url_for('static', filename='img/homeicon.png') }}" alt="Home">
         <span>Home</span>
       </a>
-      <div class="section-title">
+      <div>
         <h1>Settings</h1>
         <p>Database statistics, tools and music settings</p>
       </div>
-      <div class="icon-button static" aria-hidden="true">
-        <img src="{{ url_for('static', filename='img/settingsicon.png') }}" alt="">
-      </div>
-    </div>
+      <img class="settings-gnome" src="{{ url_for('static', filename='img/settingsicon.png') }}" alt="Settings">
+    </header>
 
     {% if error %}
-      <div class="error wow-panel">
+      <div class="error panel-shell">
         <strong>Error:</strong>
         <p>{{ error }}</p>
       </div>
     {% endif %}
 
     <div class="settings-grid">
-      <section class="settings-card wow-parchment music-settings" aria-labelledby="music-settings-title">
-        <h2 id="music-settings-title">Music</h2>
-        <label class="toggle-row" for="music-enabled">
+      <section class="parchment-card settings-card">
+        <h2>Music</h2>
+        <label class="music-toggle-row">
           <span>Music on/off</span>
-          <input id="music-enabled" type="checkbox" checked>
+          <input type="checkbox" data-music-enabled>
         </label>
-        <label class="range-row" for="music-volume">
+        <label class="volume-row">
           <span>Volume</span>
-          <input id="music-volume" type="range" min="0" max="100" value="60">
-          <strong id="music-volume-value">60%</strong>
+          <input type="range" min="0" max="100" step="1" data-music-volume>
+          <strong data-music-volume-value>50%</strong>
         </label>
-        <p class="settings-note">Music is stored locally in your browser settings. Browsers may require one click before sound starts.</p>
+        <p class="small-note">Music is stored locally in your browser settings. Browsers may require one click before sound starts.</p>
       </section>
 
-      <section class="settings-card wow-parchment all-data-settings" aria-labelledby="all-data-title">
-        <h2 id="all-data-title">All Data</h2>
+      <section class="parchment-card settings-card">
+        <h2>All Data</h2>
         <p>Browse every loaded expansion in one combined view.</p>
-        <a class="settings-action" href="{{ url_for('expansion_page', expansion='all') }}">Open All Expansions</a>
+        <a class="gold-button" href="{{ url_for('expansion_page', expansion='all', type='all') }}">Open All Expansions</a>
       </section>
     </div>
 
-    <div class="stats-total wow-parchment">
+    <section class="parchment-card stats-total">
       <h2>Database statistics</h2>
       <p>Total entries: <strong>{{ total }}</strong></p>
-    </div>
+    </section>
 
     <div class="stats-grid">
       {% for exp in ['vanilla', 'tbc', 'wotlk'] %}
-        <article class="stat-card wow-parchment">
+        <article class="parchment-card stat-card">
           <h3>{{ exp|capitalize }}</h3>
           {% for c in counts %}
             {% if c.expansion == exp %}

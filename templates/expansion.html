@@ -2,14 +2,14 @@
 {% block title %}{{ current.title }}{% endblock %}
 {% block body_class %}{{ body_class }}{% endblock %}
 {% block content %}
-<div class="app-layout oldwow-shell">
-  <aside class="sidebar wow-panel wow-sidebar">
+<div class="app-layout">
+  <aside class="sidebar panel-shell">
     <div class="expansion-mark">
       <img src="{{ url_for('static', filename='img/' + current.icon) }}" alt="{{ current.label }} icon">
       <span>{{ current.label }}</span>
     </div>
 
-    <a class="home-button wow-link-panel" href="{{ url_for('home') }}">
+    <a class="home-button" href="{{ url_for('home') }}">
       <img src="{{ url_for('static', filename='img/homeicon.png') }}" alt="Home">
       <span>Home</span>
     </a>
@@ -22,30 +22,30 @@
   </aside>
 
   <main class="content-panel">
-    <div class="topbar wow-panel expansion-topbar">
-      <div class="section-title">
+    <header class="topbar panel-shell">
+      <div class="section-title logo-title">
         <img class="expansion-header-logo" src="{{ url_for('static', filename='img/' + current.logo) }}" alt="{{ current.title }}">
         {% if expansion == 'all' %}
-          <p class="placeholder-note">All Expansions placeholder header. Custom all-data artwork can be added later.</p>
+          <p class="header-note">All Expansions placeholder header. Custom all-data artwork can be added later.</p>
         {% endif %}
         <p>{{ match_total }} matching results</p>
       </div>
-      <a class="icon-button" href="{{ url_for('settings') }}" title="Settings" aria-label="Settings">
+      <a class="settings-button" href="{{ url_for('settings') }}" title="Settings" aria-label="Settings">
         <img src="{{ url_for('static', filename='img/settingsicon.png') }}" alt="Settings">
       </a>
-    </div>
+    </header>
 
     {% if error %}
-      <div class="error wow-panel">
+      <div class="error panel-shell">
         <strong>Error:</strong>
         <p>{{ error }}</p>
       </div>
     {% endif %}
 
-    <form class="search wow-panel" method="get">
+    <form class="search panel-shell" method="get">
       <input type="hidden" name="type" value="{{ typ }}">
       <input type="text" name="q" value="{{ q }}" placeholder="Search name or ID. Leave empty to browse category.">
-      <select name="sort" aria-label="Sort results">
+      <select name="sort" aria-label="Sort order">
         {% for value, label in sorts %}
           <option value="{{ value }}" {% if sort == value %}selected{% endif %}>{{ label }}</option>
         {% endfor %}
@@ -79,7 +79,7 @@
       {% endif %}
     </form>
 
-    <div class="pager wow-panel">
+    <div class="pager panel-shell">
       <div class="page-info">Page {{ page }} of {{ max_page }}.</div>
       <div class="pager-buttons">
         {% if page > 1 %}
@@ -109,7 +109,7 @@
 
     <section class="results">
       {% for row in rows %}
-      <article class="card wow-parchment">
+      <article class="card parchment-card">
         <div class="card-head">
           <span class="pill">{{ row.expansion }}</span>
           <span class="pill">{{ row.type }}</span>
@@ -135,7 +135,7 @@
         {% endif %}
       </article>
       {% else %}
-      <div class="card wow-parchment empty-state">
+      <div class="card parchment-card empty-state">
         <h2>No results</h2>
         <p>Try another filter or search.</p>
       </div>

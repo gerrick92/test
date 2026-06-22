@@ -13,6 +13,24 @@ app = Flask(__name__)
 ROOT_DIR = Path(__file__).resolve().parent
 MUSIC_DIR = ROOT_DIR / "music"
 
+MUSIC_CANDIDATES = {
+    "home": ["homepage.mp3", "homepage.ogg", "homepage.wav", "homepage.m4a", "home.mp3"],
+    "homepage": ["homepage.mp3", "homepage.ogg", "homepage.wav", "homepage.m4a", "home.mp3"],
+    "settings": ["settings.mp3", "settings.ogg", "settings.wav", "settings.m4a"],
+    "vanilla": ["vanilla.mp3", "vanilla.ogg", "vanilla.wav", "vanilla.m4a"],
+    "tbc": ["tbc.mp3", "tbc.ogg", "tbc.wav", "tbc.m4a"],
+    "wotlk": ["wotlk.mp3", "wotlk.ogg", "wotlk.wav", "wotlk.m4a"],
+    "all": ["all.mp3", "all.ogg", "all.wav", "all.m4a"],
+}
+
+
+def music_for(page_key: str) -> str | None:
+    for filename in MUSIC_CANDIDATES.get(page_key, []):
+        if (MUSIC_DIR / filename).is_file():
+            return filename
+    return None
+
+
 EXPANSION_DATA = {
     "vanilla": {
         "label": "Vanilla",
@@ -125,30 +143,13 @@ def pagination_window(page: int, max_page: int, width: int = 5) -> list[int]:
     return list(range(start, end + 1))
 
 
-@app.route("/music/<path:filename>")
-def music_file(filename: str):
-    return send_from_directory(MUSIC_DIR, filename)
-
-
 @app.route("/")
 def home():
-    total = 0
-    counts = []
-    try:
-        conn = connect()
-        total = conn.execute("SELECT COUNT(*) FROM entries").fetchone()[0]
-        counts = conn.execute(
-            "SELECT expansion, type, COUNT(*) c FROM entries GROUP BY expansion, type ORDER BY expansion, type"
-        ).fetchall()
-    except Exception:
-        pass
     return render_template(
         "home.html",
         expansion_data=EXPANSION_DATA,
-        total=total,
-        counts=counts,
         body_class="page-home",
-        music_key="homepage",
+        music_file=music_for("homepage"),
     )
 
 
@@ -165,13 +166,15 @@ def settings():
         ).fetchall()
     except Exception as exc:
         error = str(exc)
+
     return render_template(
         "settings.html",
         total=total,
         counts=counts,
         error=error,
+        expansion_data=EXPANSION_DATA,
         body_class="page-settings",
-        music_key="settings",
+        music_file=music_for("settings"),
     )
 
 
@@ -181,7 +184,8 @@ def expansion_page(expansion: str):
         return redirect(url_for("home"))
 
     q = request.args.get("q", "").strip()
-    typ = request.args.get("type", "quest")
+    default_type = "all" if expansion == "all" else "quest"
+    typ = request.args.get("type", default_type)
     sort = request.args.get("sort", "id_asc")
     item_group = request.args.get("item_group", "all")
     equip_slot = request.args.get("equip_slot", "all")
@@ -267,7 +271,6 @@ def expansion_page(expansion: str):
         )
 
     current = EXPANSION_DATA[expansion]
-
     return render_template(
         "expansion.html",
         expansion=expansion,
@@ -293,8 +296,13 @@ def expansion_page(expansion: str):
         match_total=match_total,
         error=error,
         body_class=current["body_class"],
-        music_key=current["music_key"],
+        music_file=music_for(current.get("music_key", expansion)),
     )
+
+
+@app.route("/music/<path:filename>")
+def serve_music(filename: str):
+    return send_from_directory(MUSIC_DIR, filename)
 
 
 if __name__ == "__main__":

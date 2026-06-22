@@ -3,16 +3,13 @@
 {% block body_class %}{{ body_class }}{% endblock %}
 {% block content %}
 <main class="portal-home" aria-label="WoW Database Explorer home">
-  <div class="portal-logo-links" aria-label="Choose expansion">
-    <a class="portal-logo-link portal-logo-classic" href="{{ url_for('expansion_page', expansion='vanilla') }}" aria-label="Open World of Warcraft Classic">
-      <img src="{{ url_for('static', filename='img/' + expansion_data['vanilla']['logo']) }}" alt="World of Warcraft Classic">
-    </a>
-    <a class="portal-logo-link portal-logo-tbc" href="{{ url_for('expansion_page', expansion='tbc') }}" aria-label="Open The Burning Crusade">
-      <img src="{{ url_for('static', filename='img/' + expansion_data['tbc']['logo']) }}" alt="The Burning Crusade">
-    </a>
-    <a class="portal-logo-link portal-logo-wotlk" href="{{ url_for('expansion_page', expansion='wotlk') }}" aria-label="Open Wrath of the Lich King">
-      <img src="{{ url_for('static', filename='img/' + expansion_data['wotlk']['logo']) }}" alt="Wrath of the Lich King">
-    </a>
-  </div>
+  <h1 class="sr-only">WoW Database Explorer</h1>
+  <section class="portal-stage" aria-label="Choose expansion">
+    <img class="portal-art" src="{{ url_for('static', filename='img/homepage.png') }}" alt="Dark Portal with World of Warcraft expansion logos">
+
+    <a class="portal-hitbox portal-hitbox-classic" href="{{ url_for('expansion_page', expansion='vanilla') }}" aria-label="Open World of Warcraft Classic"></a>
+    <a class="portal-hitbox portal-hitbox-tbc" href="{{ url_for('expansion_page', expansion='tbc') }}" aria-label="Open The Burning Crusade"></a>
+    <a class="portal-hitbox portal-hitbox-wotlk" href="{{ url_for('expansion_page', expansion='wotlk') }}" aria-label="Open Wrath of the Lich King"></a>
+  </section>
 </main>
 {% endblock %}

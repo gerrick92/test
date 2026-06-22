@@ -5,9 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}WoW Database Explorer{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <script defer src="{{ url_for('static', filename='audio.js') }}"></script>
 </head>
-<body class="{% block body_class %}{% if body_class %}{{ body_class }}{% endif %}{% endblock %}" data-music-key="{{ music_key|default('homepage') }}">
+<body class="{% block body_class %}{% if body_class %}{{ body_class }}{% endif %}{% endblock %}">
   {% block content %}{% endblock %}
+
+  {% if music_file %}
+    <audio id="page-music" data-page-music src="{{ url_for('serve_music', filename=music_file) }}" loop preload="auto"></audio>
+  {% endif %}
+
+  <script>
+    (function () {
+      const STORAGE_ENABLED = "wowDatabaseMusicEnabled";
+      const STORAGE_VOLUME = "wowDatabaseMusicVolume";
+      const audio = document.querySelector("[data-page-music]");
+      const enabledControl = document.querySelector("[data-music-enabled]");
+      const volumeControl = document.querySelector("[data-music-volume]");
+      const volumeValue = document.querySelector("[data-music-volume-value]");
+
+      function getEnabled() {
+        const stored = localStorage.getItem(STORAGE_ENABLED);
+        return stored === null ? true : stored === "true";
+      }
+
+      function getVolume() {
+        const stored = Number(localStorage.getItem(STORAGE_VOLUME));
+        if (!Number.isFinite(stored)) return 0.5;
+        return Math.max(0, Math.min(1, stored));
+      }
+
+      function setVolumeLabel(value) {
+        if (volumeValue) {
+          volumeValue.textContent = Math.round(value * 100) + "%";
+        }
+      }
+
+      function applyMusicState(shouldPlay) {
+        const enabled = getEnabled();
+        const volume = getVolume();
+
+        if (enabledControl) enabledControl.checked = enabled;
+        if (volumeControl) volumeControl.value = String(Math.round(volume * 100));
+        setVolumeLabel(volume);
+
+        if (!audio) return;
+        audio.volume = volume;
+
+        if (!enabled) {
+          audio.pause();
+          audio.currentTime = 0;
+          return;
+        }
+
+        if (shouldPlay) {
+          audio.currentTime = 0;
+          audio.play().catch(function () {
+            // Browsers can block autoplay until a user interacts with the page.
+          });
+        }
+      }
+
+      applyMusicState(true);
+
+      if (enabledControl) {
+        enabledControl.addEventListener("change", function () {
+          localStorage.setItem(STORAGE_ENABLED, enabledControl.checked ? "true" : "false");
+          applyMusicState(true);
+        });
+      }
+
+      if (volumeControl) {
+        volumeControl.addEventListener("input", function () {
+          const value = Number(volumeControl.value) / 100;
+          localStorage.setItem(STORAGE_VOLUME, String(value));
+          setVolumeLabel(value);
+          if (audio) audio.volume = value;
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
