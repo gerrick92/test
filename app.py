@@ -10,10 +10,10 @@ from src.mangos import commands_for
 app = Flask(__name__)
 
 EXPANSION_DATA = {
-    "vanilla": {"label": "Vanilla", "title": "World of Warcraft Classic", "logo": "vanilla_logo_large.webp", "icon": "vanilla_icon.jpg", "body_class": "page-vanilla"},
-    "tbc": {"label": "TBC", "title": "The Burning Crusade", "logo": "tbc_logo_large.jpg", "icon": "tbc_icon.jpg", "body_class": "page-tbc"},
+    "vanilla": {"label": "Vanilla", "title": "World of Warcraft Classic", "logo": "vanilla_logo_large.webp", "icon": "vanilla_icon.png", "body_class": "page-vanilla"},
+    "tbc": {"label": "TBC", "title": "The Burning Crusade", "logo": "tbc_logo_large.jpg", "icon": "tbc_icon.png", "body_class": "page-tbc"},
     "wotlk": {"label": "WotLK", "title": "Wrath of the Lich King", "logo": "wotlk_logo_large.jpg", "icon": "wotlk_icon.png", "body_class": "page-wotlk"},
-    "all": {"label": "All Data", "title": "All Expansions", "logo": None, "icon": "home_hearthstone.webp", "body_class": "page-all"},
+    "all": {"label": "All Data", "title": "All Expansions", "logo": None, "icon": "home_hearthstone.png", "body_class": "page-all"},
 }
 
 TYPES = [("quest", "Quests"), ("item", "Items"), ("npc", "NPCs"), ("object", "Objects")]
@@ -118,6 +118,7 @@ def expansion_page(expansion: str):
     total = 0
     match_total = 0
     error = None
+    max_page = 1
 
     try:
         conn = connect()
@@ -166,7 +167,6 @@ def expansion_page(expansion: str):
 
     except Exception as exc:
         error = str(exc)
-        max_page = 1
 
     pages = pagination_window(page, max_page)
 

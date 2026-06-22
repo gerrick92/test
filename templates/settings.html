@@ -4,9 +4,9 @@
 {% block content %}
 <main class="app-layout single">
   <header class="topbar">
-    <a class="icon-button" href="{{ url_for('home') }}"><img src="/static/img/home_hearthstone.webp" alt="Home"></a>
+    <a class="icon-button transparent-icon" href="{{ url_for('home') }}"><img src="/static/img/home_hearthstone.png" alt="Home"></a>
     <div class="section-title"><h1>Settings</h1><p>Database statistics and tools</p></div>
-    <div class="icon-button static"><img src="/static/img/settings_gnome.webp" alt="Settings"></div>
+    <div class="icon-button transparent-icon static"><img src="/static/img/settings_gnome.png" alt="Settings"></div>
   </header>
   {% if error %}<section class="error"><strong>Error:</strong><pre>{{ error }}</pre></section>{% endif %}
   <section class="settings-panel">

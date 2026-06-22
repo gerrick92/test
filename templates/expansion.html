@@ -4,11 +4,11 @@
 {% block content %}
 <main class="app-layout">
   <aside class="sidebar">
-    <div class="expansion-mark">
+    <div class="expansion-mark transparent-icon">
       <img src="/static/img/{{ current.icon }}" alt="{{ current.label }}">
       <span>{{ current.label }}</span>
     </div>
-    <a class="home-button" href="{{ url_for('home') }}"><img src="/static/img/home_hearthstone.webp" alt="Home"><span>Home</span></a>
+    <a class="home-button transparent-icon" href="{{ url_for('home') }}"><img src="/static/img/home_hearthstone.png" alt="Home"><span>Home</span></a>
     <nav class="side-nav">
       {% for value, label in types %}
         <a class="{% if typ == value %}active{% endif %}" href="{{ url_for('expansion_page', expansion=expansion, type=value, sort=sort, per_page=per_page) }}">{{ label }}</a>
@@ -18,8 +18,12 @@
 
   <section class="content-panel">
     <header class="topbar">
-      <div class="section-title"><h1>{{ current.title }}</h1><p>{{ match_total }} matching results</p></div>
-      <a class="icon-button" href="{{ url_for('settings') }}"><img src="/static/img/settings_gnome.webp" alt="Settings"></a>
+      <div class="section-title">
+        {% if current.logo %}<img class="expansion-header-logo" src="/static/img/{{ current.logo }}" alt="{{ current.title }}">{% endif %}
+        <h1>{{ current.title }}</h1>
+        <p>{{ match_total }} matching results</p>
+      </div>
+      <a class="icon-button transparent-icon" href="{{ url_for('settings') }}"><img src="/static/img/settings_gnome.png" alt="Settings"></a>
     </header>
 
     {% if error %}<section class="error"><strong>Error:</strong><pre>{{ error }}</pre></section>{% endif %}
