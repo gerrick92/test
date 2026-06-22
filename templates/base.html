@@ -8,5 +8,14 @@
 </head>
 <body class="{% block body_class %}{% if body_class %}{{ body_class }}{% endif %}{% endblock %}">
   {% block content %}{% endblock %}
+
+  {% if music_file %}
+  <button class="music-toggle" type="button" aria-pressed="false" data-music-src="{{ url_for('music_file', filename=music_file) }}">
+    <span class="music-toggle-icon" aria-hidden="true">♪</span>
+    <span class="music-toggle-text">Music</span>
+  </button>
+  <audio id="page-music" preload="none" loop></audio>
+  <script src="{{ url_for('static', filename='audio.js') }}"></script>
+  {% endif %}
 </body>
 </html>

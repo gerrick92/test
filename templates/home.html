@@ -2,27 +2,23 @@
 {% block title %}WoW Database Explorer{% endblock %}
 {% block body_class %}{{ body_class }}{% endblock %}
 {% block content %}
-<main class="landing oldwow-shell">
-  <section class="landing-overlay wow-panel wow-panel-wide">
-    <p class="small-count">{{ total }} local entries loaded</p>
-    <div class="landing-heading">
-      <p class="landing-kicker">Offline MaNGOS Database</p>
-      <h1>WoW Database Explorer</h1>
-      <p class="landing-subtitle">Classic, TBC and WotLK with local browsing, filters, pagination, Wowhead links and MaNGOS helper commands.</p>
-    </div>
+<main class="portal-home" aria-labelledby="home-title">
+  <h1 id="home-title" class="sr-only">WoW Database Explorer</h1>
 
-    <div class="expansion-select">
-      <a class="expansion-card wow-panel" href="{{ url_for('expansion_page', expansion='vanilla') }}" aria-label="Open World of Warcraft Classic">
-        <img src="{{ url_for('static', filename='img/' + expansion_data['vanilla']['logo']) }}" alt="World of Warcraft Classic">
+
+  <section class="portal-stage" aria-label="Choose expansion">
+    <img class="portal-image" src="{{ url_for('static', filename='img/main_portal.webp') }}" alt="Dark Portal with Classic, The Burning Crusade and Wrath of the Lich King logos">
+    <nav class="portal-hotspots" aria-label="Expansion links">
+      <a class="portal-hotspot portal-hotspot-vanilla" href="{{ url_for('expansion_page', expansion='vanilla') }}">
+        <span>World of Warcraft Classic</span>
       </a>
-      <a class="expansion-card wow-panel" href="{{ url_for('expansion_page', expansion='tbc') }}" aria-label="Open The Burning Crusade">
-        <img src="{{ url_for('static', filename='img/' + expansion_data['tbc']['logo']) }}" alt="The Burning Crusade">
+      <a class="portal-hotspot portal-hotspot-tbc" href="{{ url_for('expansion_page', expansion='tbc') }}">
+        <span>The Burning Crusade</span>
       </a>
-      <a class="expansion-card wow-panel" href="{{ url_for('expansion_page', expansion='wotlk') }}" aria-label="Open Wrath of the Lich King">
-        <img src="{{ url_for('static', filename='img/' + expansion_data['wotlk']['logo']) }}" alt="Wrath of the Lich King">
+      <a class="portal-hotspot portal-hotspot-wotlk" href="{{ url_for('expansion_page', expansion='wotlk') }}">
+        <span>Wrath of the Lich King</span>
       </a>
-      <a class="all-data-card" href="{{ url_for('expansion_page', expansion='all') }}">All Data</a>
-    </div>
+    </nav>
   </section>
 </main>
 {% endblock %}

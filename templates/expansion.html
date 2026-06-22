@@ -10,7 +10,7 @@
     </div>
 
     <a class="home-button wow-link-panel" href="{{ url_for('home') }}">
-      <img src="{{ url_for('static', filename='img/home_hearthstone.png') }}" alt="Home">
+      <img src="{{ url_for('static', filename='img/home_hearthstone.png') }}" alt="">
       <span>Home</span>
     </a>
 
@@ -23,17 +23,15 @@
 
   <main class="content-panel">
     <div class="topbar wow-panel">
-      <div class="section-title">
-        <div class="title-badge">
-          <img class="header-icon" src="{{ url_for('static', filename='img/' + current.icon) }}" alt="{{ current.label }} icon">
-          <div>
-            <h1>{{ current.title }}</h1>
-            <p>{{ match_total }} matching results</p>
-          </div>
+      <div class="section-title title-badge">
+        <img class="header-icon" src="{{ url_for('static', filename='img/' + current.icon) }}" alt="{{ current.label }} icon">
+        <div>
+          <h1>{{ current.title }}</h1>
+          <p>{{ match_total }} matching results</p>
         </div>
       </div>
       <a class="icon-button" href="{{ url_for('settings') }}" title="Settings" aria-label="Settings">
-        <img src="{{ url_for('static', filename='img/settings_gnome.png') }}" alt="Settings">
+        <img src="{{ url_for('static', filename='img/settings_gnome.png') }}" alt="">
       </a>
     </div>
 

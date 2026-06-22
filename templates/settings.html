@@ -2,19 +2,21 @@
 {% block title %}Settings{% endblock %}
 {% block body_class %}{{ body_class }}{% endblock %}
 {% block content %}
-<main class="app-layout single oldwow-shell">
+<main class="app-layout single oldwow-shell settings-page">
   <section class="settings-panel wow-panel">
-    <div class="topbar settings-topbar">
+    <div class="settings-header">
       <a class="home-button wow-link-panel" href="{{ url_for('home') }}">
-        <img src="{{ url_for('static', filename='img/home_hearthstone.png') }}" alt="Home">
+        <img src="{{ url_for('static', filename='img/home_hearthstone.png') }}" alt="">
         <span>Home</span>
       </a>
+
       <div class="section-title">
         <h1>Settings</h1>
-        <p>Database statistics and tools</p>
+        <p>Database information, tools and links.</p>
       </div>
-      <div class="icon-button static" aria-hidden="true">
-        <img src="{{ url_for('static', filename='img/settings_gnome.png') }}" alt="Settings">
+
+      <div class="settings-gnome" aria-hidden="true">
+        <img src="{{ url_for('static', filename='img/settings_gnome.png') }}" alt="">
       </div>
     </div>
 
@@ -25,9 +27,13 @@
       </div>
     {% endif %}
 
+    <div class="settings-actions">
+      <a class="all-data-card" href="{{ url_for('expansion_page', expansion='all', type='all') }}">All Data</a>
+    </div>
+
     <div class="stats-total wow-parchment">
       <h2>Database statistics</h2>
-      <p>Total entries: <strong>{{ total }}</strong></p>
+      <p>Total local entries: <strong>{{ total }}</strong></p>
     </div>
 
     <div class="stats-grid">

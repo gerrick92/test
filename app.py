@@ -1,12 +1,30 @@
 from __future__ import annotations
 
 import json
-from flask import Flask, render_template, request, url_for, redirect
+from pathlib import Path
+from flask import Flask, render_template, request, url_for, redirect, send_from_directory
 
 from src.db import connect
 from src.mangos import commands_for
 
 app = Flask(__name__)
+ROOT_DIR = Path(__file__).resolve().parent
+MUSIC_DIR = ROOT_DIR / "music"
+
+MUSIC_CANDIDATES = {
+    "home": ["homepage.mp3", "homepage.ogg", "homepage.wav", "homepage.m4a", "home.mp3"],
+    "settings": ["settings.mp3", "settings.ogg", "settings.wav", "settings.m4a"],
+    "vanilla": ["vanilla.mp3", "vanilla.ogg", "vanilla.wav", "vanilla.m4a"],
+    "tbc": ["tbc.mp3", "tbc.ogg", "tbc.wav", "tbc.m4a"],
+    "wotlk": ["wotlk.mp3", "wotlk.ogg", "wotlk.wav", "wotlk.m4a"],
+}
+
+
+def music_for(page_key: str) -> str | None:
+    for filename in MUSIC_CANDIDATES.get(page_key, []):
+        if (MUSIC_DIR / filename).is_file():
+            return filename
+    return None
 
 EXPANSION_DATA = {
     "vanilla": {
@@ -118,17 +136,12 @@ def pagination_window(page: int, max_page: int, width: int = 5) -> list[int]:
 
 @app.route("/")
 def home():
-    total = 0
-    counts = []
-    try:
-        conn = connect()
-        total = conn.execute("SELECT COUNT(*) FROM entries").fetchone()[0]
-        counts = conn.execute(
-            "SELECT expansion, type, COUNT(*) c FROM entries GROUP BY expansion, type ORDER BY expansion, type"
-        ).fetchall()
-    except Exception:
-        pass
-    return render_template("home.html", expansion_data=EXPANSION_DATA, total=total, counts=counts, body_class="page-home")
+    return render_template(
+        "home.html",
+        expansion_data=EXPANSION_DATA,
+        body_class="page-home",
+        music_file=music_for("home"),
+    )
 
 
 @app.route("/settings")
@@ -144,7 +157,15 @@ def settings():
         ).fetchall()
     except Exception as exc:
         error = str(exc)
-    return render_template("settings.html", total=total, counts=counts, error=error, body_class="page-settings")
+    return render_template(
+        "settings.html",
+        total=total,
+        counts=counts,
+        error=error,
+        expansion_data=EXPANSION_DATA,
+        body_class="page-settings",
+        music_file=music_for("settings"),
+    )
 
 
 @app.route("/expansion/<expansion>")
@@ -263,7 +284,13 @@ def expansion_page(expansion: str):
         match_total=match_total,
         error=error,
         body_class=EXPANSION_DATA[expansion]["body_class"],
+        music_file=music_for(expansion) if expansion != "all" else music_for("settings"),
     )
+
+
+@app.route("/music/<path:filename>")
+def music_file(filename: str):
+    return send_from_directory(MUSIC_DIR, filename)
 
 
 if __name__ == "__main__":
